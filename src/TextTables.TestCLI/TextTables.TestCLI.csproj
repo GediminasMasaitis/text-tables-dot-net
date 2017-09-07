@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{248C73FC-FA44-4700-BED9-9133E90A0A38}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TextTables</RootNamespace>
-    <AssemblyName>TextTables</AssemblyName>
+    <ProjectGuid>{A1D39AC9-A721-4AB9-B19F-18CCE0C72F9D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TextTables.TestCLI</RootNamespace>
+    <AssemblyName>TextTables.TestCLI</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,26 +36,17 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internal\BorderConnection.cs" />
-    <Compile Include="Internal\CellInfo.cs" />
-    <Compile Include="Internal\ColumnInfo.cs" />
-    <Compile Include="Internal\ExtensionMethods.cs" />
-    <Compile Include="Internal\RowInfo.cs" />
-    <Compile Include="Internal\Size.cs" />
-    <Compile Include="Internal\SpanInfo.cs" />
-    <Compile Include="Internal\TableInfoCalculator.cs" />
-    <Compile Include="Internal\TableWriter.cs" />
-    <Compile Include="Internal\TableInfo.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextTable.cs" />
-    <Compile Include="TextTableCell.cs" />
-    <Compile Include="TextTableCharset.cs" />
-    <Compile Include="TextTableHorizontalAlignment.cs" />
-    <Compile Include="TextTableOptions.cs" />
-    <Compile Include="TextTablePadding.cs" />
-    <Compile Include="TextTableRow.cs" />
-    <Compile Include="TextTableVerticalAlignment.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextTables\TextTables.csproj">
+      <Project>{248c73fc-fa44-4700-bed9-9133e90a0a38}</Project>
+      <Name>TextTables</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

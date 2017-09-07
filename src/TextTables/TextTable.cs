@@ -32,14 +32,19 @@ namespace TextTables
             return row;
         }
 
-        public string Build()
+        public void BuildInto(StringBuilder sb)
         {
             var calc = new TableInfoCalculator();
             var info = calc.CalculateTableInfo(this);
-            var sb = new StringBuilder();
             var writer = new TableWriter(sb, info.TableSize, Options.Charset);
             var builder = new TableBuilder();
             builder.Build(info, writer);
+        }
+
+        public string Build()
+        {
+            var sb = new StringBuilder();
+            BuildInto(sb);
             var str = sb.ToString();
             return str;
         }

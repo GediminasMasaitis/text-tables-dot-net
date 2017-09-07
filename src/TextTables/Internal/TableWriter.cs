@@ -81,7 +81,8 @@ namespace TextTables.Internal
             InnerBuilder = innerBuilder;
             TableSize = tableSize;
             Charset = charset;
-            InnerBuilder.Clear();
+            // Use InnerBuilder.Clear() for .NET 4.0+
+            InnerBuilder.Length = 0;
             InnerBuilder.Capacity = tableSize.Height * (tableSize.Width + 1);
             for (var i = 0; i < tableSize.Height; i++)
             {
