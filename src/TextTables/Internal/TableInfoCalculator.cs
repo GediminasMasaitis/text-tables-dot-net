@@ -112,7 +112,7 @@ namespace TextTables.Internal
                     }
                     foreach (var colIndex in cellInfo.Columns)
                     {
-                        var cells = byRow.AddOrCreate(colIndex, () => new List<CellInfo>());
+                        var cells = byCol.AddOrCreate(colIndex, () => new List<CellInfo>());
                         cells.Add(cellInfo);
                     }
                 }
