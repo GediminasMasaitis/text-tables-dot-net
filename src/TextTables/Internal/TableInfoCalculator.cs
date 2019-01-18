@@ -21,7 +21,8 @@ namespace TextTables.Internal
                 {
                     var cell = row.Cells[j];
                     var info = new CellInfo(cell);
-                    info.Lines = cell.Content.ToString().Replace("\r", string.Empty).Split('\n');
+                    var contentStr = cell.Content?.ToString() ?? string.Empty;
+                    info.Lines = contentStr.Replace("\r", string.Empty).Split('\n');
                     if (cell.MaxRowLength.HasValue)
                     {
                         info.Lines = info.Lines.SelectMany(x => ChunksUpto(x, cell.MaxRowLength.Value)).ToArray();
